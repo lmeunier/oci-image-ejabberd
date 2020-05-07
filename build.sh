@@ -1,6 +1,8 @@
 #!/bin/bash
 
 EJABBERD_VERSION="20.04"
+ARCH=$(uname -m)
+TAG="$ARCH-$EJABBERD_VERSION"
 
 set -e
 
@@ -93,9 +95,11 @@ buildah config --port 5269 $runtime_container
 buildah config --port 5280 $runtime_container
 buildah config --port 5443 $runtime_container
 
+# Commit
+buildah commit $runtime_container ejabberd:$TAG
+
 # Clean up
 buildah unmount $build_container
 buildah unmount $runtime_container
-buildah commit $runtime_container ejabberd:latest
 buildah rm $build_container $runtime_container
 
