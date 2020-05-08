@@ -3,8 +3,8 @@ Build an ejabberd OCI image
 
 ## How to build the image
 
-* make sure rsync, [Podman](https://podman.io/) and [Buildah](https://buildah.io/)
-  are installed
+* make sure bash, jq, rsync, [Podman](https://podman.io/) and
+  [Buildah](https://buildah.io/) are installed
 
 * clone this repository
 
