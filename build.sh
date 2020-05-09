@@ -1,8 +1,6 @@
 #!/bin/bash
 
 EJABBERD_VERSION="20.04"
-ARCH=$(buildah info --format {{".host.arch"}})
-TAG="$ARCH-$EJABBERD_VERSION"
 
 set -e
 
@@ -96,6 +94,14 @@ buildah config --port 5280 $runtime_container
 buildah config --port 5443 $runtime_container
 
 # Commit
+ARCH=$(buildah info --format {{".host.arch"}})
+if [[ $ARCH -eq arm ]]; then
+  case $(grep -i -m1 "CPU architecture" /proc/cpuinfo | cut -f3 -d" ") in
+    7) VARIANT="v7";;
+  esac
+  ARCH="$ARCH$VARIANT"
+fi
+TAG="$ARCH-$EJABBERD_VERSION"
 buildah commit $runtime_container ejabberd:$TAG
 
 # Clean up
