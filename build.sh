@@ -1,7 +1,7 @@
 #!/bin/bash
 
 EJABBERD_VERSION="20.04"
-ARCH=$(buildah info | jq -r ".host.arch")
+ARCH=$(buildah info --format {{".host.arch"}})
 TAG="$ARCH-$EJABBERD_VERSION"
 
 set -e
