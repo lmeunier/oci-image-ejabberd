@@ -40,7 +40,7 @@ buildah run $build_container mix local.hex --force
 buildah run $build_container mix local.rebar --force
 
 buildah run $build_container addgroup -S ejabberd
-buildah run $build_container adduser -D -S -G ejabberd ejabberd
+buildah run $build_container adduser -D -S -G ejabberd --home /var/lib/ejabberd ejabberd
 
 buildah run $build_container git clone https://github.com/processone/ejabberd /opt/ejabberd-src
 buildah config --workingdir /opt/ejabberd-src $build_container
@@ -70,7 +70,7 @@ buildah run $runtime_container apk add $ERLANG_PKGS
 buildah run $runtime_container rm -rf /var/cache/apk/*
 
 buildah run $runtime_container addgroup -S ejabberd
-buildah run $runtime_container adduser -D -S -G ejabberd ejabberd
+buildah run $runtime_container adduser -D -S -G ejabberd --home /var/lib/ejabberd ejabberd
 
 for d in /etc/ejabberd /var/lib/ejabberd /var/log/ejabberd /usr/local; do
     mkdir -p $runtime_mount/$d
