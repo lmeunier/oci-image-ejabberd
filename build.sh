@@ -4,9 +4,9 @@ EJABBERD_VERSION="20.04"
 
 set -e
 
-build_container=$(buildah from alpine:latest)
+build_container=$(buildah from --override-arch="" alpine:latest)
 build_mount=$(buildah mount $build_container)
-runtime_container=$(buildah from alpine:latest)
+runtime_container=$(buildah from --override-arch="" alpine:latest)
 runtime_mount=$(buildah mount $runtime_container)
 
 echo "======================================================================="
