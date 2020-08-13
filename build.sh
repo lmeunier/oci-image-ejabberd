@@ -17,10 +17,7 @@ echo "runtime_container=$runtime_container"
 echo "runtime_mount=$runtime_mount"
 echo "======================================================================="
 
-ERLANG_PKGS="erlang erlang-asn1 erlang-crypto erlang-erts erlang-eunit       \
-             erlang-mnesia erlang-os-mon erlang-parsetools erlang-public-key \
-             erlang-reltool erlang-runtime-tools erlang-sasl erlang-ssl      \
-             erlang-syntax-tools erlang-tools"
+ERLANG_PKGS="erlang"
 
 
 #
