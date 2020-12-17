@@ -1,6 +1,6 @@
 #!/bin/bash
 
-EJABBERD_VERSION="20.07"
+EJABBERD_VERSION="20.12"
 
 set -e
 
@@ -30,9 +30,6 @@ buildah run $build_container apk add build-base git zlib-dev openssl-dev yaml-de
     bash elixir file curl linux-pam-dev
 buildah run $build_container apk add $ERLANG_PKGS
 buildah run $build_container rm -rf /var/cache/apk/*
-
-buildah run $build_container mix local.hex --force
-buildah run $build_container mix local.rebar --force
 
 buildah run $build_container addgroup -S ejabberd
 buildah run $build_container adduser -D -S -G ejabberd --home /var/lib/ejabberd ejabberd
