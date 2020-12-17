@@ -72,7 +72,7 @@ done
 
 # Image configuration
 buildah config --user ejabberd:ejabberd $runtime_container
-buildah config --workingdir /home/ejabberd $runtime_container
+buildah config --workingdir /var/lib/ejabberd $runtime_container
 buildah config --entrypoint '["/usr/local/sbin/ejabberdctl"]' $runtime_container
 buildah config --cmd foreground $runtime_container
 
