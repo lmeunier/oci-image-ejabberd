@@ -39,13 +39,13 @@ buildah config --workingdir /opt/ejabberd-src $build_container
 buildah run $build_container git checkout $EJABBERD_VERSION
 buildah run $build_container sh ./autogen.sh
 buildah run $build_container ./configure \
-	                           --enable-user=ejabberd  \
-	                           --enable-group=ejabberd \
-	                           --enable-sqlite         \
+                                   --enable-user=ejabberd  \
+                                   --enable-group=ejabberd \
+                                   --enable-sqlite         \
                                    --enable-zlib           \
                                    --enable-stun           \
                                    --sysconfdir=/etc       \
-				   --localstatedir=/var
+                                   --localstatedir=/var
 buildah run $build_container make
 buildah run $build_container make install
 
