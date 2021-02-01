@@ -42,7 +42,7 @@ podman create                                                    \
 * generate a systemd unit file
 
 ```
-podman generate systemd --restart-policy=always -t 10 ejabberd \
+podman generate systemd --new --restart-policy=always -t 10 ejabberd \
   > /etc/systemd/system/container_ejabberd.service
 ```
 
