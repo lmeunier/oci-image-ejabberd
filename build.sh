@@ -4,9 +4,9 @@ EJABBERD_VERSION="21.01"
 
 set -e
 
-build_container=$(buildah from --override-arch="" alpine:3.12)
+build_container=$(buildah from --override-arch="" alpine:latest)
 build_mount=$(buildah mount $build_container)
-runtime_container=$(buildah from --override-arch="" alpine:3.12)
+runtime_container=$(buildah from --override-arch="" alpine:latest)
 runtime_mount=$(buildah mount $runtime_container)
 
 echo "======================================================================="
