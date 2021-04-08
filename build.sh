@@ -1,6 +1,6 @@
 #!/bin/bash
 
-EJABBERD_VERSION="21.01"
+EJABBERD_VERSION="21.04"
 
 set -e
 

@@ -36,7 +36,7 @@ podman create                                                    \
   --network host-bridge                                          \
   --ip 192.168.1.220                                             \
   --name ejabberd                                                \
-  docker.io/lmeunier/ejabberd:21.01
+  docker.io/lmeunier/ejabberd:21.04
 ```
 
 * generate a systemd unit file
@@ -87,7 +87,7 @@ TAG based on the current CPU architecture and the ejabberd version.
 ```
 $ podman images
 REPOSITORY                   TAG          IMAGE ID      CREATED        SIZE
-localhost/ejabberd           armv7-21.01  b9921295d4bc  3 minutes ago  134 MB
+localhost/ejabberd           armv7-21.04  b9921295d4bc  3 minutes ago  134 MB
 docker.io/library/alpine     latest       7e4bece93b3e  2 months ago   4.05 MB
 
 ```
@@ -95,7 +95,7 @@ docker.io/library/alpine     latest       7e4bece93b3e  2 months ago   4.05 MB
 * test the builed OCI image
 
 ```
-podman run -it --rm ejabberd:armv7-21.01
+podman run -it --rm ejabberd:armv7-21.04
 ```
 
 
@@ -111,7 +111,7 @@ buildah login docker.io
 
 
 ```
-TAG="armv7-21.01"
+TAG="armv7-21.04"
 USERNAME="lmeunier"
 
 buildah push ejabberd:$TAG docker://docker.io/$USERNAME/ejabberd:$TAG
@@ -120,7 +120,7 @@ buildah push ejabberd:$TAG docker://docker.io/$USERNAME/ejabberd:$TAG
 ### Push a multi-arch image to Docker Hub
 
 ```
-EJABBERD_VERSION="21.01"
+EJABBERD_VERSION="21.04"
 USERNAME="lmeunier"
 
 ARCHS="amd64 armv7"
